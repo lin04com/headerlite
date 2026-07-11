@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 560px;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #10233f 0%, #14395e 55%, #1a5276 100%);
+    color: #fff;
+    display: flex; align-items: center;
+    padding: 0 90px;
+    gap: 70px;
+    overflow: hidden;
+  }
+  .left { flex: 1; }
+  .brand { display: flex; align-items: center; gap: 18px; margin-bottom: 26px; }
+  .brand .mark {
+    width: 64px; height: 64px; border-radius: 14px;
+    background: #1e88e5; display: flex; align-items: center; justify-content: center;
+  }
+  .brand .mark svg { width: 36px; height: 36px; fill: #fff; }
+  .brand .name { font-size: 54px; font-weight: 700; letter-spacing: 1px; }
+  .tagline { font-size: 30px; color: #bcd6ec; margin-bottom: 34px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip {
+    font-size: 22px; padding: 9px 20px; border-radius: 999px;
+    background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22);
+    color: #e8f2fa;
+  }
+  /* 右侧：迷你规则表格卡片 */
+  .card {
+    width: 460px; background: #fff; border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.35); overflow: hidden; flex-shrink: 0;
+  }
+  .card .bar { background: #16233a; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; }
+  .card .bar .t { color: #fff; font-size: 20px; font-weight: 600; }
+  .card .bar .pill { background: #2e7d32; color: #fff; font-size: 15px; padding: 4px 12px; border-radius: 999px; }
+  .card table { width: 100%; border-collapse: collapse; font-size: 19px; color: #26313d; }
+  .card th { text-align: left; font-size: 15px; color: #7c8b99; padding: 12px 14px 6px; border-bottom: 1px solid #eef2f6; }
+  .card td { padding: 11px 14px; border-bottom: 1px solid #f2f5f8; }
+  .mono { font-family: ui-monospace, Menlo, monospace; }
+  .ok { color: #2e7d32; font-weight: 700; }
+  .grip { color: #b6c2cd; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand">
+      <div class="mark">
+        <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+      </div>
+      <div class="name">HeaderLite</div>
+    </div>
+    <div class="tagline">改请求头 · 响应头 · 重定向，一行规则即刻生效</div>
+    <div class="chips">
+      <span class="chip">HTTP / WebSocket</span>
+      <span class="chip">多配置 Profile</span>
+      <span class="chip">拖拽定优先级</span>
+      <span class="chip">快捷键开关</span>
+      <span class="chip">本地存储 · 零收集</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="bar"><span class="t">联调环境</span><span class="pill">已启用</span></div>
+    <table>
+      <tr><th></th><th>操作</th><th>Header</th><th>值</th></tr>
+      <tr><td class="grip">⠿</td><td class="ok">set</td><td class="mono">X-Token</td><td class="mono">dev-123</td></tr>
+      <tr><td class="grip">⠿</td><td class="ok">set</td><td class="mono">X-WS-Token</td><td class="mono">ws-1</td></tr>
+      <tr><td class="grip">⠿</td><td style="color:#c62828;font-weight:700">remove</td><td class="mono">Cookie</td><td class="mono">—</td></tr>
+      <tr><td class="grip">⠿</td><td class="ok">set</td><td class="mono">Cache-Control</td><td class="mono">no-store</td></tr>
+    </table>
+  </div>
+</body>
+</html>

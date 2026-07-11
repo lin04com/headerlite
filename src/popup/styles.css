@@ -1,0 +1,528 @@
+/**
+ * HeaderLite 样式
+ * 深色顶栏 + 浅色内容、Material 紧凑工具风。
+ * 强调色仅 3 种：蓝(主操作) / 绿(启用) / 红(删除)。无渐变，4px 圆角。
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --topbar: #263238;
+  --topbar-2: #37474f;
+  --text: #212121;
+  --text-2: #757575;
+  --border: #e0e0e0;
+  --border-2: #eeeeee;
+  --blue: #1e88e5;
+  --blue-hover: #1976d2;
+  --blue-bg: #e3f2fd;
+  --green: #4caf50;
+  --green-hover: #43a047;
+  --red: #f44336;
+  --red-hover: #e53935;
+  --radius: 4px;
+}
+
+body {
+  width: 560px;
+  min-height: 100vh;
+  font-family:
+    Roboto,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+.options-root {
+  width: 1000px;
+  margin: 0 auto;
+  background: var(--surface);
+  min-height: 100vh;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+}
+
+/* —— App 容器 —— */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* —— 深色顶栏 —— */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 14px;
+  background: var(--topbar);
+  color: #eceff1;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.topbar-brand svg {
+  width: 16px;
+  height: 16px;
+  fill: #b0bec5;
+}
+
+/* —— Material 开关 —— */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.switch-label {
+  font-size: 12px;
+  color: #cfd8dc;
+}
+
+.switch-track {
+  position: relative;
+  width: 34px;
+  height: 14px;
+  border-radius: 8px;
+  background: #546e7a;
+  transition: background 0.15s;
+}
+
+.switch-thumb {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #b0bec5;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+
+.switch.on .switch-track {
+  background: var(--green-hover);
+}
+
+.switch.on .switch-thumb {
+  transform: translateX(14px);
+  background: var(--green);
+}
+
+/* —— 工具栏：profile 选择 + 操作 —— */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-select {
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  padding: 0 8px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.profile-select:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+/* 内联命名输入（替代 window.prompt） */
+.profile-title-input {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  font-size: 12px;
+}
+.btn-confirm-delete {
+  background: #fdecea;
+  border-color: var(--red);
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* —— 规则列表 —— */
+.rule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 12px;
+  flex: 1;
+}
+
+/* —— 列显隐切换 —— */
+.col-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.col-toggle-label {
+  font-size: 11px;
+  color: var(--text-2);
+  margin-right: 2px;
+}
+
+.chip {
+  height: 22px;
+  padding: 0 8px;
+  font-size: 11px;
+  color: var(--text-2);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  transition:
+    background 0.12s,
+    color 0.12s,
+    border-color 0.12s;
+}
+
+.chip:hover {
+  background: #f0f2f4;
+}
+
+.chip-on {
+  color: var(--blue);
+  border-color: var(--blue);
+  background: var(--blue-bg);
+}
+
+.rule-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rule-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  padding-left: 8px;
+  position: relative;
+}
+
+.rule-section h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--blue);
+}
+
+.empty-hint {
+  color: var(--text-2);
+  font-size: 12px;
+  padding: 10px 4px;
+}
+
+/* —— 表格 —— */
+.rule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  table-layout: fixed;
+}
+
+.rule-table th,
+.rule-table td {
+  padding: 5px 4px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-2);
+  font-weight: 500;
+  color: var(--text-2);
+  font-size: 11px;
+  text-transform: none;
+}
+
+.rule-table tbody tr:hover {
+  background: #f7f9fb;
+}
+
+/* —— 行拖拽排序 —— */
+.col-drag {
+  width: 20px;
+  padding-left: 2px;
+  padding-right: 0;
+}
+
+.drag-handle {
+  cursor: grab;
+  color: #9aa4b0;
+  user-select: none;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.drag-handle:hover {
+  color: #5f6b76;
+}
+
+.rule-table tbody tr.row-dragging {
+  opacity: 0.45;
+}
+.rule-table tbody tr.row-drop-target {
+  border-top: 2px solid var(--blue);
+}
+
+.col-enable {
+  width: 26px;
+  text-align: center;
+}
+.col-op {
+  width: 72px;
+}
+.col-name {
+  width: 108px;
+}
+.col-value {
+  width: auto;
+}
+.col-url {
+  width: 96px;
+}
+.col-comment {
+  width: 76px;
+}
+.col-type {
+  width: 78px;
+}
+.col-from {
+  width: auto;
+}
+.col-to {
+  width: auto;
+}
+.col-action {
+  width: 28px;
+  text-align: center;
+}
+
+/* 表格输入框 / 下拉 */
+.rule-table input[type="text"],
+.rule-table select {
+  width: 100%;
+  height: 26px;
+  padding: 0 6px;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+}
+
+.rule-table input[type="text"]:focus,
+.rule-table select:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: #fff;
+}
+
+.rule-table input:disabled {
+  background: #f5f5f5;
+  color: var(--text-2);
+  cursor: not-allowed;
+}
+
+.rule-table input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: var(--green);
+  vertical-align: middle;
+}
+
+/* —— 按钮 —— */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  height: 30px;
+  padding: 0 10px;
+  font-size: 12px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  transition:
+    background 0.12s,
+    border-color 0.12s;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #f0f2f4;
+  border-color: #bdbdbd;
+}
+
+.btn-secondary svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: #ffebee;
+  border-color: var(--red);
+  color: var(--red-hover);
+}
+
+.btn-icon {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+
+.btn-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.btn-icon:hover:not(:disabled) {
+  background: #f0f2f4;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background: #ffebee;
+  color: var(--red-hover);
+}
+
+/* 添加行：蓝色描边 + 加号 */
+.btn-add {
+  align-self: flex-start;
+  height: 28px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--blue);
+  background: var(--blue-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.12s;
+}
+
+.btn-add:hover {
+  background: #d4e9fc;
+}
+
+.btn-add svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* —— 底部 —— */
+.app-footer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+/* —— Toast —— */
+.toast {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  font-size: 12px;
+  color: #fff;
+  background: #37474f;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  animation: toastIn 0.18s;
+  z-index: 10;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* —— 状态 —— */
+.loading,
+.empty-state {
+  padding: 48px;
+  text-align: center;
+  color: var(--text-2);
+  font-size: 13px;
+}

@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "HeaderLite",
+  "minimum_chrome_version": "92",
+  "version": "0.2.0",
+  "description": "修改 HTTP/WebSocket 请求头、响应头与重定向 URL 的开发者工具",
+  "icons": {
+    "16": "images/icon_16.png",
+    "48": "images/icon_48.png",
+    "128": "images/icon_128.png"
+  },
+  "permissions": ["declarativeNetRequest", "storage", "contextMenus"],
+  "commands": {
+    "toggle-global": {
+      "suggested_key": {
+        "default": "Alt+Shift+M"
+      },
+      "description": "切换 HeaderLite 总开关"
+    }
+  },
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "src/popup/index.html",
+    "default_title": "HeaderLite",
+    "default_icon": {
+      "16": "images/icon_16.png",
+      "48": "images/icon_48.png",
+      "128": "images/icon_128.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options/index.html",
+    "open_in_tab": true
+  }
+}
